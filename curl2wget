@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]
+then
+    echo "Usage: $0 curl-req-file"
+    exit
+fi
+
+crf=$1
+sed -e 's@-H @--header=@g;s@^curl @wget @g;s@--compressed$@@g' $crf
